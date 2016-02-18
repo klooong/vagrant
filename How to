@@ -1,0 +1,59 @@
+Vagrant
+-	Vigrantup.com download 
+-	rm Vagrantfile
+-	VAGRANT
+-	-       gives quick provision of virtual machine mainintaing the same standard across your enviroment
+     can be pushed to git for other developers to grab
+-	 
+1.     download vagrant from site to local machine
+2.     create a directory for each project
+3.     cd into projects directory and put vagrant file from http://www.vagrantbox.es/
+4.     vagrant box add “name” “link”
+5.     vagrant init “name”
+6.     vagrant up to build the vagrant file
+7.     vagrant ssh will take you into terminal
+8.     vagrant box remove “name”
+9.     vagrant up will build
+10. vagrant destroy shuts down and destroys machine
+
+VAGRANT 
+
+vagrant box list
+vagrant box remove
+vagrant up
+vagrant halt
+vagrant suspend - space will be occupied by cpu/ram wont be used
+vagrant resume
+vagrant destroy
+vagrant box add
+vagrant init kay http..... followed by vagrant up
+config.vm.network "forwarded_port", guest: 80, host: 8080
+sudo python -m SimpleHTTPServer 80 checks to see that port 80 is open I think.
+
+Vim provision.sh
+#!/usr/bin/env bash
+echo "installing apache and setting apech up..please wait"
+yum update > /dev/null 2>&1
+yum install httpd -y  > /dev/null 2>&1
+rm -rf /var/www
+ln -fs /vagrant /var/www
+
+Then vim vagranfile
+
+Edit 
+config.vm.provision "shell", path: "provision.sh"
+
+
+
+
+
+
+Private Network
+
+Public
+
+
+
+config.vm.network "forwarded_port", guest: 80, host: 8080
+ config.vm.network "public_network"
+ config.vm.provision "shell", path: "provision.sh"
