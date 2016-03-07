@@ -89,3 +89,9 @@ SCRIPT ON NETWORKIN, MANUAL INSTALLATION AND PORT FORWARDING
     SHELL
 end
 
+TO Manage HTTPD Apache from HOST
+
+1. in vagrant file, create an index.html and echo something in it
+2. rm -rf /var/www/html
+3. ln -s /var/www/html /root/vagrant/index.html
+4. access on localhost:8080 or which ever port you configured for port forwarding
