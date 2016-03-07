@@ -95,3 +95,24 @@ TO Manage HTTPD Apache from HOST
 2. rm -rf /var/www/html
 3. ln -s /var/www/html /root/vagrant/index.html
 4. access on localhost:8080 or which ever port you configured for port forwarding
+
+Vagrant synced
+
+Can serve as a backup
+Even when you destroy a vm, it keeps files in vagrant
+
+Httpd manually
+
+Rm –rf /var/www
+Create index.html in vagrant folder
+Ln –sf /vagrant /var/www
+
+Httpd scripted
+
+#! /usr/bin/env bash
+
+echo “installing Apache and setting up… Please Wait”
+yum update –y >/dev/null 2>&1
+rm –rf /var/www
+ln –fs /vagrant /var/www
+
